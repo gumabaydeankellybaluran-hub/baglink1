@@ -224,6 +224,7 @@ small {
 
 /* LOGIN SCREEN */
 
+
 .login-logo {
     text-align: center;
     margin-bottom: 22px;
@@ -236,6 +237,8 @@ small {
 .login-logo h1 {
     font-size: 30px;
 }
+
+
 
 .panel {
     padding: 17px;
@@ -904,5 +907,308 @@ small {
 
     .device-buttons .btn {
         font-size: 9px;
+    }
+}
+
+
+
+/* =========================================================
+   RESPONSIVE BAGLINK LAYOUT
+   Supports desktop, laptop, tablet, and mobile screens.
+   These overrides preserve the existing BagLink styling.
+   ========================================================= */
+
+/* Fluid app canvas for larger screens */
+html {
+    min-height: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    padding: 24px;
+    align-items: flex-start;
+}
+
+.app {
+    width: 100%;
+    max-width: 1180px;
+    min-height: calc(100vh - 48px);
+    padding: 30px 34px 105px;
+    overflow: visible;
+    border-radius: 24px;
+}
+
+.screen {
+    width: 100%;
+    min-width: 0;
+}
+
+.panel,
+.profile-card,
+.greeting,
+.promo {
+    max-width: 100%;
+}
+
+input,
+button {
+    max-width: 100%;
+}
+
+button,
+.btn {
+    touch-action: manipulation;
+}
+
+/* Give the desktop interface more breathing room */
+@media (min-width: 1025px) {
+    .app {
+        padding: 34px 42px 110px;
+    }
+
+    .logo img {
+        width: 125px;
+        height: 125px;
+    }
+
+    h1 {
+        font-size: clamp(30px, 3vw, 42px);
+    }
+
+    .panel {
+        padding: 22px;
+    }
+
+    .bottom-nav {
+        right: 0;
+        left: 0;
+        max-width: 1180px;
+        margin: 0 auto;
+        border-radius: 0 0 24px 24px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    body {
+        padding: 16px;
+    }
+
+    .app {
+        max-width: 900px;
+        min-height: calc(100vh - 32px);
+        padding: 25px 24px 100px;
+    }
+
+    .bottom-nav {
+        max-width: 100%;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+}
+
+/* Mobile and narrow tablets */
+@media (max-width: 768px) {
+    body {
+        display: block;
+        padding: 0;
+        background: #FBFCFA;
+    }
+
+    .app {
+        width: 100%;
+        max-width: none;
+        min-height: 100dvh;
+        padding: 20px 16px calc(92px + env(safe-area-inset-bottom));
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .welcome-content {
+        min-height: min(680px, calc(100dvh - 130px));
+        padding-top: 35px;
+    }
+
+    .top-header,
+    .page-header {
+        gap: 10px;
+    }
+
+    .page-header h2 {
+        font-size: 18px;
+    }
+
+    .greeting {
+        margin-bottom: 18px;
+    }
+
+    .map {
+        height: clamp(260px, 55vw, 390px);
+    }
+
+    .status-legend {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px 14px;
+    }
+
+    .status-legend span {
+        font-size: 10px;
+    }
+
+    .device-buttons {
+        flex-wrap: wrap;
+    }
+
+    .device-buttons .btn {
+        min-height: 42px;
+        font-size: 11px;
+    }
+
+    .history-item {
+        flex-wrap: wrap;
+    }
+
+    .history-item time {
+        margin-left: auto;
+    }
+
+    .bottom-nav {
+        position: fixed;
+        z-index: 20;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: calc(70px + env(safe-area-inset-bottom));
+        padding: 8px 5px calc(7px + env(safe-area-inset-bottom));
+        border-radius: 0;
+        box-shadow: 0 -4px 18px #183C2810;
+    }
+
+    .bottom-nav button {
+        flex: 1;
+        min-width: 0;
+        min-height: 48px;
+        font-size: 10px;
+    }
+
+    .bottom-nav button span {
+        font-size: 22px;
+    }
+
+    .message-box {
+        right: 12px;
+        bottom: calc(82px + env(safe-area-inset-bottom));
+        left: 12px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .app {
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .panel {
+        padding: 14px;
+        border-radius: 15px;
+    }
+
+    .logo img {
+        width: 96px;
+        height: 96px;
+    }
+
+    .welcome-content {
+        padding-top: 28px;
+    }
+
+    .abstract-design {
+        top: 265px;
+    }
+
+    .map {
+        height: 280px;
+    }
+
+    .status-legend {
+        gap: 8px 10px;
+    }
+
+    .status-legend span {
+        font-size: 9px;
+    }
+
+    .device-buttons .btn {
+        flex-basis: 100%;
+    }
+
+    .change-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-nav button {
+        font-size: 9px;
+    }
+
+    .bottom-nav button span {
+        font-size: 21px;
+    }
+}
+
+/* Very short screens: prevent the welcome content from overflowing */
+@media (max-height: 650px) and (max-width: 768px) {
+    .welcome-content {
+        min-height: 540px;
+        padding-top: 15px;
+    }
+
+    .abstract-design {
+        top: 230px;
+        height: 170px;
+    }
+}
+
+/* Prevent long labels, emails, and addresses from breaking the layout */
+.profile-card,
+.information-row,
+.settings-item,
+.notification-item,
+.history-item,
+.device-header {
+    min-width: 0;
+}
+
+.profile-card strong,
+.profile-card small,
+.information-row strong,
+.settings-item strong,
+.history-item strong {
+    overflow-wrap: anywhere;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
