@@ -267,3 +267,19 @@ function logout() {
 document.addEventListener("DOMContentLoaded", function() {
     showScreen("welcome");
 });
+
+
+// Keep any Leaflet map correctly sized after rotating or resizing a device.
+// This is safe even if the map is not initialized on the current demo screen.
+window.addEventListener("resize", function () {
+    if (typeof map !== "undefined" && map && typeof map.invalidateSize === "function") {
+        map.invalidateSize();
+    }
+});
+window.addEventListener("orientationchange", function () {
+    if (typeof map !== "undefined" && map && typeof map.invalidateSize === "function") {
+        setTimeout(function () {
+            map.invalidateSize();
+        }, 250);
+    }
+});
